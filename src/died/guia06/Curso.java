@@ -56,7 +56,19 @@ public class Curso {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		if(a.creditosObtenidos() >= creditos && inscriptos.size() < cupo) {
+			int cantCursosSimultaneo = 0;
+			for(Curso unCurso : a.getCursando()) {
+				if(unCurso.cicloLectivo == this.cicloLectivo) cantCursosSimultaneo++;
+			}
+			if(cantCursosSimultaneo < 3) {
+				this.inscriptos.add(a);
+				a.inscripcionAceptada(this);
+				return true;
+			}
+			else return false;
+		}
+		else return false;
 	}
 	
 	
@@ -70,6 +82,10 @@ public class Curso {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		for(Alumno unAlumno : inscriptos) {
+			System.out.print(unAlumno.toString());
+		}
+		System.out.println();
 	}
 
 
