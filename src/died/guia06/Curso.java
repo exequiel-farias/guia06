@@ -32,7 +32,10 @@ public class Curso {
 		this.log = new Registro();
 	}
 	
-
+	public Integer getCreditos() {
+		return creditos;
+	}
+	
 	/**
 	 * Este método, verifica si el alumno se puede inscribir y si es así lo agrega al curso,
 	 * agrega el curso a la lista de cursos en los que está inscripto el alumno y retorna verdadero.
