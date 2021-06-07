@@ -81,6 +81,29 @@ public class Curso {
 		else return false;
 	}
 	
+	public void inscribirAlumno(Alumno a) throws CreditosRequeridosInsuficienteException,CupoCubiertoException,MateriasRegularCompletasException, RegistroAuditoriaException {
+		try {
+			log.registrar(this, "inscribir ",a.toString());
+		} catch (IOException e) {
+			throw new RegistroAuditoriaException("No se pudo registrar la operacion",e);
+		}
+		if(a.creditosObtenidos() >= creditosRequeridos) {
+			if(inscriptos.size() < cupo) {
+				int cantCursosSimultaneo = 0;
+				for(Curso unCurso : a.getCursando()) {
+					if(unCurso.cicloLectivo == this.cicloLectivo) cantCursosSimultaneo++;
+				}
+				if(cantCursosSimultaneo < 3) {
+					this.inscriptos.add(a);
+					a.inscripcionAceptada(this);
+				}
+				else throw new MateriasRegularCompletasException("El alumno tiene todas las materias de cursado regular") ;
+			}
+			else throw new CupoCubiertoException("El curso ya tiene el cupo cubierto");
+		}
+		else throw new CreditosRequeridosInsuficienteException("El alumno no tiene los creditos requeridos suficiente");
+	}
+	
 	
 	/**
 	 * imprime los inscriptos en orden alfabetico
