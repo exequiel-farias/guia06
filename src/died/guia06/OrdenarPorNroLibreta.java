@@ -2,7 +2,7 @@ package died.guia06;
 
 import java.util.Comparator;
 
-public class ordenarPorNroLibreta implements Comparator<Alumno> {
+public class OrdenarPorNroLibreta implements Comparator<Alumno> {
 
 	@Override
 	public int compare(Alumno o1, Alumno o2) {

@@ -26,8 +26,10 @@ public class Alumno implements Comparable<Alumno>{
 
 	public int creditosObtenidos() {
 		int total = 0;
-		for(Curso unCurso : aprobados) {
-			total += unCurso.getCreditos();
+		if(aprobados.size() > 0) {
+			for(Curso unCurso : aprobados) {
+				total += unCurso.getCreditos();
+			}
 		}
 		return total;
 	}
@@ -39,6 +41,7 @@ public class Alumno implements Comparable<Alumno>{
 	public void aprobar(Curso c) {
 		this.cursando.remove(c);
 		this.aprobados.add(c);
+		c.alumnoAprobado(this);
 	}
 
 	public void inscripcionAceptada(Curso c) {

@@ -26,10 +26,20 @@ public class Curso {
 	
 	private Registro log;
 	
-	public Curso() {
+	public Curso(Integer id, String nombre, Integer cicloLectivo, Integer cupo, Integer creditos, Integer creditosRequeridos) {
 		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.cicloLectivo = cicloLectivo;
+		this.cupo = cupo;
+		this.creditos = creditos;
+		this.creditosRequeridos = creditosRequeridos;
 		this.inscriptos = new ArrayList<Alumno>();
 		this.log = new Registro();
+	}
+	
+	public List<Alumno> getInscriptos(){
+		return inscriptos;
 	}
 	
 	public Integer getCreditos() {
@@ -56,7 +66,7 @@ public class Curso {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(a.creditosObtenidos() >= creditos && inscriptos.size() < cupo) {
+		if(a.creditosObtenidos() >= creditosRequeridos && inscriptos.size() < cupo) {
 			int cantCursosSimultaneo = 0;
 			for(Curso unCurso : a.getCursando()) {
 				if(unCurso.cicloLectivo == this.cicloLectivo) cantCursosSimultaneo++;
@@ -88,5 +98,7 @@ public class Curso {
 		System.out.println();
 	}
 
-
+	public void alumnoAprobado(Alumno a) {
+		this.inscriptos.remove(a);
+	}
 }
