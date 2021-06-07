@@ -85,7 +85,7 @@ public class Curso {
 		try {
 			log.registrar(this, "inscribir ",a.toString());
 		} catch (IOException e) {
-			throw new RegistroAuditoriaException("No se pudo registrar la operacion",e);
+			throw new RegistroAuditoriaException("No se pudo registrar la operacion");
 		}
 		if(a.creditosObtenidos() >= creditosRequeridos) {
 			if(inscriptos.size() < cupo) {

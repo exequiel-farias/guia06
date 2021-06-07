@@ -9,6 +9,8 @@ public class App {
 		Curso ami = new Curso(2,"AMI",1,10,3,0);
 		Curso amii = new Curso(3,"AMII",2,10,5,5);
 		Curso fisica = new Curso(4,"Fisica",1,3,5,0);
+		Curso syo = new Curso(5,"SyO",1,1,3,0);
+		Curso arquitectura = new Curso(6,"Arquitectura",1,3,5,0);
 		
 		Alumno a1 = new Alumno("Exequiel",125);
 		Alumno a2 = new Alumno("Leandro",123);
@@ -16,22 +18,110 @@ public class App {
 		Alumno a4 = new Alumno("Ana",126);
 		Alumno a5 = new Alumno("Pedro",127);
 		
-		algebra.inscribir(a1);
-		algebra.inscribir(a2);
-		algebra.inscribir(a3);
-		algebra.inscribir(a4);
+		try {
+			amii.inscribirAlumno(a5);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			algebra.inscribirAlumno(a1);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			algebra.inscribirAlumno(a2);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			algebra.inscribirAlumno(a3);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			algebra.inscribirAlumno(a4);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			ami.inscribirAlumno(a1);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			ami.inscribirAlumno(a2);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			ami.inscribirAlumno(a3);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		
 		a1.aprobar(algebra);
 		a2.aprobar(algebra);
-		a3.aprobar(algebra);
-		ami.inscribir(a1);
-		ami.inscribir(a2);
+		a3.aprobar(algebra);		
 		a1.aprobar(ami);
 		a2.aprobar(ami);
-		amii.inscribir(a1);
+		
+		try {
+			amii.inscribirAlumno(a1);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
 		a1.aprobar(amii);
-		fisica.inscribir(a1);
-		fisica.inscribir(a2);
-		fisica.inscribir(a3);
+		try {
+			fisica.inscribirAlumno(a1);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			fisica.inscribirAlumno(a2);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			fisica.inscribirAlumno(a3);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			syo.inscribirAlumno(a3);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			syo.inscribirAlumno(a4);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			syo.inscribirAlumno(a5);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			arquitectura.inscribirAlumno(a3);
+		} catch (CreditosRequeridosInsuficienteException | CupoCubiertoException | MateriasRegularCompletasException
+				| RegistroAuditoriaException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		System.out.println("Curso fisica ordenados por creditos obtenidos:");
 		Collections.sort(algebra.getInscriptos(), new OrdenarPorCreditosObtenidos());
